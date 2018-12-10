@@ -35,13 +35,50 @@ class ForecastExtended extends Component {
     }
   }
 
-  componentDidMount(){
+/*  componentDidMount(){
     //fetch or axios
     const url_forecast= `${url}?q=${this.props.city}&appid=${api_key}`;
     // Fetch genera una promise, y se esperan los resultados con la sentencia 'then' que nos permite obtener los resultados
     //una vez que se termina de ejecutar la promise
     fetch(url_forecast)
       .then(data => (data.json()))  //se pide en formato json la data para que genere un objeto con la informacion que este llegando
+      .then(weather_data => {
+        console.log(weather_data)
+        const forecastData = transformForecast(weather_data)
+        console.log(forecastData)
+        this.setState({ forecastData: forecastData });
+      })
+  }*/
+
+  componentDidMount(){
+    this.updateCity(this.props.city);
+  }
+
+/*
+Componente de ciclo de vida que se utiliza para hacer actualizaciones, especialmente cuando se modifican las
+propiedades del componente. */
+
+  // Se ejecuta cada vez que hay una actualizacion de las propiedades
+  //nextProps: proximas propiedades que se van a establecer (toddavia no se establecieron),esta en un punto previo
+  //al establecimiento de las propiedades y previo a la actualizacion del componente
+  //chequear sí(en las propiedades actualizadas la ciudad es la misma que se tiene estalecida)
+//  nextProps.city es diferente a la ciudad que ya esta establecidad en this.props.city
+  componentWillReceiveProps(nextProps){
+    // sí es diferente
+    if(nextProps.city !== this.props.city){
+      //Para que se vea el loading hay que establecerlo antes de la funcion que llama al renderizado
+      this.setState({
+        forecastData: null  //Y asi aparece el indicador de carga
+      })
+      this.updateCity(nextProps.city);
+    }
+  }
+
+  updateCity = (city) => {
+    const url_forecast= `${url}?q=${city}&appid=${api_key}`;
+
+    fetch(url_forecast)
+      .then(data => (data.json()))
       .then(weather_data => {
         console.log(weather_data)
         const forecastData = transformForecast(weather_data)

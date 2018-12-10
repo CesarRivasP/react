@@ -378,3 +378,7 @@ fetch
 
 MomentJS
 - Esta libreria se encarga de resolver tareas relacionadas con el manejo de fechas.
+
+componentWillReceiveProps
+- Se utiliza en casos en los que se quiere actualizar el componente.
+- Se ejecuta siempre que se modifiquen las propiedades, excepto la primera vez que se establece el componente.
