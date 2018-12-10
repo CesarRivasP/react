@@ -43,11 +43,11 @@ class ForecastExtended extends Component {
     fetch(url_forecast)
       .then(data => (data.json()))  //se pide en formato json la data para que genere un objeto con la informacion que este llegando
       .then(weather_data => {
-        // console.log(weather_data)
+        console.log(weather_data)
         const forecastData = transformForecast(weather_data)
+        console.log(forecastData)
         this.setState({ forecastData: forecastData });
       })
-
   }
 
   renderForecastItemDays(){

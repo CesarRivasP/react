@@ -375,3 +375,6 @@ Ciclo de actualización / render
 fetch
 - Esto genera una promise, y se esperan los resultados con la sentencia 'then' que nos permite obtener el resultados una vez que se termina de ejecutar la promise. Es decir que no se ejecuta de forma asincrona, sino que primero se ejecuta el fetch(url_api), y una vez termina de resolverse y se obtiene el resultado se ejecuta lo que se ponga dentro del 'then'
 - Fetch es una sentencia que permite obtener datos del servidor, ya sea hacer un get o http request.
+
+MomentJS
+- Esta libreria se encarga de resolver tareas relacionadas con el manejo de fechas.
