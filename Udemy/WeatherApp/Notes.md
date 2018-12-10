@@ -415,8 +415,29 @@ Se ejecuta cuando un componente va a ser tirado del DOM, el metodo que maneja es
   - componentWillUnmount: Dentro de este metodo se pueden realizar tareas de limpieza como invalidar timers, cancelar peticiones al servidor o eliminar cualquier tipo de subscripcion que puediera haberse hecho en el componentDidMount.
 
 * Fase de Manejo de errores (Error Handling)
-Solo se ejecutara en caso de que suceda algun problema en el renderizado del componente en alguno de los metodos del ciclo de vida o en el constructor de cualquiera de sus componentes hijos.
+Solo se ejecutara en caso de que suceda algún problema en el renderizado del componente en alguno de los métodos del ciclo de vida o en el constructor de cualquiera de sus componentes hijos.
 
 * UNSAFE METHODS
-Previo a react 16 estaba el metodo componentWillMount, el cual es desaconsejado por react y lo han declarado como inseguro. Junto a este metodo, el componentWillUpdate, y el componentWillReceiveProps. Este ultimo fue declarado unsafe porque supuestamente los desarrolladores tendian a utilizarlo de manera que generaba bugs e inconsistencias.
-Todos estos metodos declarados unsafe quedaran deprecados en la version 17 de react. 
+Previo a react 16 estaba el método componentWillMount, el cual es desaconsejado por react y lo han declarado como inseguro. Junto a este método, el componentWillUpdate, y el componentWillReceiveProps. Este ultimo fue declarado unsafe porque supuestamente los desarrolladores tendían a utilizarlo de manera que generaba bugs e inconsistencias.
+Todos estos métodos declarados unsafe quedaran deprecados en la versión 17 de react.
+
+
+¿Que es lo que genera que un componente se actualice o re-renderice?
+Al hacer:
+- SetState: cuando se establece un nuevo estado
+- Cuando desde un componente padre se modifican las props
+- Cuando se llama al forceUpdate
+
+Cualquiera de estos tres eventos genera la re-renderizacion del componente y una actualización en pantalla.
+¿Que elementos se pueden renderizar?
+1.- Los react elements que son componentes nativos y componentes de usuarios extendidos de Component JSX.
+2.- Se pueden renderizar como nodos de texto tanto strings como numeros.
+3.- Si se necesita algún componente que no renderice en ningún tipo de HTML element, podemos renderizar con Null o false.
+
+¿Que es el virtual DOM?
+En las paginas web, el navegador mantiene una representación de los elementos visuales que se muestran en la pagina, esta estructura se denomina DOCUMENT OBJECT MODEL (DOM).
+Dentro de la estructura de datos que se mantiene en el DOM, se tiene una jerarquía de objetos HTML que el navegador puede representar y cada vez que existe alguna modificación en este DOM, se generan modificaciones visuales en pantalla.
+Muchos de los frameworks y librerías visuales basados en JS se encargan de modificar el DOM del navegador y de esta manera consiguen manipular la interfaz grafica. El problema con ese tipo de solución, es que alterar el DOM real es una tarea costosa en tiempo y no resulta ser performante al menos que se realice de manera muy selectiva.
+Todo esto, se refiere a que se deben modificar los elementos del DOM que realmente fueron modificados.
+React logra los antes mencionado mediante la utilización del Virtual DOM.
+React mantiene en memoria una representación liviana de cada uno de los componentes generados, y ante cada modificación de los mismos, ejecuta una comparación y determina los cambios que existieron e impacta solo estos cambios finalmente en DOM real, evitando actualizaciones innecesarias, y haciendo este proceso tan eficiente como pudiera ser.
