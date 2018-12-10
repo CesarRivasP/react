@@ -24,5 +24,5 @@
   font-family: 'Roboto', sans-serif;
   /* Roboto como fuente principal, y en caso de que no la encuentre 'sans-serif'*/
   box-shadow: 10px 10px 40px -12px rgba(0,0,0,75); /* Sombra */
-
+  cursor: pointer;
 }

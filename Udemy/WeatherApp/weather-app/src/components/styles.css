@@ -1,8 +1,18 @@
+.locationList {
+  /* background: green; */
+  /* max-height: 30vh; */
+  height: 85vh;
+  overflow: auto; /* para que se despliegue la barra del scroll */
+  /* margin-bottom: 20px; /* para que se distancie de la lista del prognostico extendido */
+  box-shadow: 10px 10px 40px -12px rgba(0,0,0,75); /* Sombra */
+}
+
+
 @media (max-width: 64em) {
   .locationList {
     /* background: green; */
-    max-height: 30vh;
-    overflow: auto; /* para que se despliegue la barra del scroll */
+    max-height: 45vh;
+    /* overflow: auto; /* para que se despliegue la barra del scroll */ */
     margin-bottom: 20px; /* para que se distancie de la lista del prognostico extendido */
   }
 }
