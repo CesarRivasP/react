@@ -382,3 +382,41 @@ MomentJS
 componentWillReceiveProps
 - Se utiliza en casos en los que se quiere actualizar el componente.
 - Se ejecuta siempre que se modifiquen las propiedades, excepto la primera vez que se establece el componente.
+
+
+Los componentes del tipo clase proveen mas potencialidades que los de tipo función, puesto que los de tipo funcion solo son una funcion que renderiza, y los de tipo clase viene asociados a muchas mas potencialidades.
+En los de tipo clase, siempre va a existir, al menos, un metodo llamado render, esto es lo minimo que debe poseer el componente para funcionar correctamente.
+
+Principales métodos del ciclo de vida de los componentes en React
+Existen tres fases para un componente.
+Fases:
+- Montaje: es la fase en la cual se realiza en montaje al inicio.
+- Actualización: la fase en la cual se actualiza para mostrar datos nuevos.
+- Desmontaje: la fase de desmontaje, en la cual el componente deja de estar en pantalla
+Alternativamente (Cuando suceden errores)
+- Manejo de errores (Error Handling)
+
+* Fase de montaje (Mounting)
+  Dentro de esta fase se producen los siguiente eventos:
+  - constructor: este método es el primero en ser llamado por React, y sucede antes de que se monte el componente. Se debe utilizar en casos como la inicializacion del estado local del componente meidante this.state o el 'binding' de funciones. (No se ha hecho binding de funciones porque se ha utilizado la sintaxis de ecmascript 6 con arrow functions y de esta manera se evita)
+    - getDerivedStateFromProps: fue introducido en React 16
+  - render: este es el único método requerido, sirve para generar los elementos de React que van a ser mostrados por pantalla. El render es importante que sea una función pura, y no actualice ni modifique el estado de ninguna manera. Este método debe ser liviano, y que solo se encargue de armar la parte visual.
+  - componentDidMount: es invocado luego que el componente es insertado en el árbol de componentes del DOM
+
+  * Fase de actualizacion de los Componentes (Update)
+    - render
+    - componentDidUpdate: este método es invocado inmediatamente después de que ocurre una actualización. Este método nos permite comparar los valores de la propiedades antes de la actualización y después de la actualización, y por ejemplo, realizar una petición al servidor en función de esos valores
+    Otros menos utilizados:
+    - getDerivedStateFromProps: fue introducido en la reciente versión de react 16.
+    - shouldComponentUpdate: Se utiliza inmediatamente despues que ocurre una actualizacion. Ayuda a mejorar la eficiencia, pero solo debe utilizarse en casos muy particulares.
+    - getSnapshotsBeforeUpdate: fue introducido en la reciente versión de react 16.
+* Fase de desmontaje del componente (Unmounting)
+Se ejecuta cuando un componente va a ser tirado del DOM, el metodo que maneja esta fase es el componentWillUnmount.
+  - componentWillUnmount: Dentro de este metodo se pueden realizar tareas de limpieza como invalidar timers, cancelar peticiones al servidor o eliminar cualquier tipo de subscripcion que puediera haberse hecho en el componentDidMount.
+
+* Fase de Manejo de errores (Error Handling)
+Solo se ejecutara en caso de que suceda algun problema en el renderizado del componente en alguno de los metodos del ciclo de vida o en el constructor de cualquiera de sus componentes hijos.
+
+* UNSAFE METHODS
+Previo a react 16 estaba el metodo componentWillMount, el cual es desaconsejado por react y lo han declarado como inseguro. Junto a este metodo, el componentWillUpdate, y el componentWillReceiveProps. Este ultimo fue declarado unsafe porque supuestamente los desarrolladores tendian a utilizarlo de manera que generaba bugs e inconsistencias.
+Todos estos metodos declarados unsafe quedaran deprecados en la version 17 de react. 
