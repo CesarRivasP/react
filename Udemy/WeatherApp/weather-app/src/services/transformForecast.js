@@ -1,5 +1,6 @@
 import moment from 'moment';
-
+import 'moment/locale/es';
+import transformWeather from './transformWeather'
 
 const transformForecast = (data) => (
 // Se quieren filtrar los pronosticos correspondientes a las horas 6,12,18,
@@ -10,8 +11,16 @@ const transformForecast = (data) => (
     moment.unix(item.dt).utc().hour() === 6 ||
     moment.unix(item.dt).utc().hour() === 12 ||
     moment.unix(item.dt).utc().hour() === 18
-  ))
-); //va a retornar un objeto, para que el state deje de ser nulo en ForecastExtended
+  )).map(item => (
+      {
+        weekDay: moment.unix(item.dt).format('ddd'),
+        hour: moment.unix(item.dt).hour(),
+        data: transformWeather(item)
+      }
+    ))
+);
+
+//va a retornar un objeto, para que el state deje de ser nulo en ForecastExtended
 //Esta funcion permite establecer un nuevo estado dentro del state dentro del componente
 export default transformForecast;
 /* Con el servicio transformForecast se busca analizar si la informacion que llega es la que necesitamos, y si es asi,
@@ -22,5 +31,7 @@ va a ser parte del array resultante o no. */
 uso a la libreria moment, y se le indica que se le va a generar un valor en base a un dato UNIX (item.dt) y que se
 necesita evaluar la hora.*/
 /*
-Para asegurar el funcionamiento en paises con horario UTC no multiplo de 3, agregar 'utc()'
+- Para asegurar el funcionamiento en paises con horario UTC no multiplo de 3, agregar 'utc()'.
+- format('ddd') es para que nos de el valor de los dias de la semana (cada dia) y la funcion format, pasandole
+'ddd' nos retorna los dias de la semana en un formate reducido (LOs tres primeros caracteres)
 */
