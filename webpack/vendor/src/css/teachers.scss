@@ -1,8 +1,0 @@
-$borderWith : 2px + 3px; //las variables en sass se declaran con $
-$padding : $borderWith * 2;
-
-.Teachers {
-  border: $borderWith dashed lightblue; //dashed : sea punteada¿?
-  padding: $padding;
-  background: gray;
-}
