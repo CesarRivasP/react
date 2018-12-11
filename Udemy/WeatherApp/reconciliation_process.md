@@ -5,8 +5,8 @@ sin necesidad de que se conozca su procedimiento de actualización.
 Ante cada modificación de alguna propiedad o estado de nuestros componentes, react arma una representacion
 de la estructura de componentes en forma de arbol (Virtual DOM) que compara con la representacion anterior.
 Para realizar una actualizacion inteligente de la pantalla, React debe aplicar un algoritmo que encuentre solo las diferencias entre la estructura previa y la posterior al cambio, y con ello generar la minima cantidad de operaciones para transformar el arbol de componentes previo a la modificación en el nuevo arbol, con la modificacion aplicada.
-Comparar dos arboles de componentes es una tarea muy costosa en tiempo, por lo que se siguen algunas 'eulisticas' que permiten acelerar este proceso, es decir, se base en algunos artilugios que requieren que el desarrollador siga algunas buenas practicas para que realmente funcionen como se espera.
-Los principios de la Eulistica son dos:
+Comparar dos arboles de componentes es una tarea muy costosa en tiempo, por lo que se siguen algunas heuristicas que permiten acelerar este proceso, es decir, se base en algunos artilugios que requieren que el desarrollador siga algunas buenas practicas para que realmente funcionen como se espera.
+Los principios de la heuristica son dos:
 1.- Dos elementos o nodos de diferente tipo producirán arboles diferentes.
 2.- Cuando existieran elementos hijos del mismo tipo, el desarrollador puede proveer una clave (key) para indicar cuales elementos permanecen estables entre diferentes renderizaciones.
 
