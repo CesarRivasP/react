@@ -1,4 +1,5 @@
 ¿Que es el virtual DOM?
+Virtual DOM - Estructura de componentes en forma de Árbol (Comúnmente denominada Virtual DOM)
 En las paginas web, el navegador mantiene una representación de los elementos visuales que se muestran en la pagina, esta estructura se denomina DOCUMENT OBJECT MODEL (DOM).
 Dentro de la estructura de datos que se mantiene en el DOM, se tiene una jerarquía de objetos HTML que el navegador puede representar y cada vez que existe alguna modificación en este DOM, se generan modificaciones visuales en pantalla.
 Muchos de los frameworks y librerías visuales basados en JS se encargan de modificar el DOM del navegador y de esta manera consiguen manipular la interfaz grafica. El problema con ese tipo de solución, es que alterar el DOM real es una tarea costosa en tiempo y no resulta ser performante al menos que se realice de manera muy selectiva.
