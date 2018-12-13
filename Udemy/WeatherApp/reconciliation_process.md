@@ -84,3 +84,14 @@ En este ejemplo seria el que tiene la clave "2014".
 Nota:
 Es muy importante que las claves no sean claves aleatorias o random, ya que de esa manera la heuristica  funcionaria muy poco eficientemente. Tampoco se deberia utilizar el numero de indice como key, ya que tambien podria tener un rendimiento inferior al optimo e inclusive podria ocasionar algunos issues.
 Para que una clave sea buena y genere un buen rendimiento, puede ser una propiedad de los datos que se van a mostrar, y debe permanecer estable entre renderizaciones.
+
+
+Reconciliatión and ShouldComponentUpdate
+- Cuando el ShouldComponentUpdate retorna false no debe seguir analizando, se cancela todo el proceso de verificación, tanto el proceso de Reconciliation como de deffing, se evitan esos procesos. Por eso, una de las formas de hacer mas eficiente el renderizado es utilizando correctamente el ciclo de vida ShouldComponentUpdate.
+- Cuando el ShouldComponentUpdate retorna true indica que se debe seguir con el proceso de Reconciliation, de manera que compara los VirtualDOM equivalentes. Si retorna false, es que no son equivalentes, al encontrar diferencias en el Virtual DOM ejecuta una actualización del DOM real y solo modifica lo que sea diferente.
+ Si retorna true, y al comparar los Virtual DOM son equivalentes, no se hace una re-renderizacion.
+ Todos estos procesos react los ejecuta constantemente, siempre que los componentes llaman al render.
+
+ Performance
+ - La función render debe ser una función liviana, la cual solo modifica el DOM en los casos que son necesarios.
+ - Por eso es importante que la función render sea lo mas simple que se pueda, y no deben de haber procesamientos extra de ningún tipo, debe ser exclusivamente centrado en la renderizacion y no en procesos.
