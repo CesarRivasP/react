@@ -31,3 +31,7 @@ Actualmente se esta imponiendo el SINGLE PAGE APPLICATION porque:
 - El manejo de routing o el renderizado del lado del server se resuelven de una manera facil
 - Permiten mejorar el SEO de la pagina
 - Permiten mejorar la carga inicial
+
+Frameworks que utilizar SPA
+* REACT
+* Angular
