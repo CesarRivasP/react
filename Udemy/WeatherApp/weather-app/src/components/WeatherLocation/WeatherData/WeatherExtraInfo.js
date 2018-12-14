@@ -15,5 +15,3 @@ WeatherExtraInfo.propTypes = {
 };
 
 export default WeatherExtraInfo;
-
-//Template String .. `${value}`
