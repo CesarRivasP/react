@@ -56,3 +56,8 @@ Es un método que ayuda a disparar una acción.
 - El action creator es una funcion que se le pasa al dispatch para luego ser utilizada.
 Nota:
 En vez de hacer el dispatch de una acción directamente, se llama a un actionCreator. De esta manera estandarizamos la forma en que se llaman a la acciones y también se le proporciona un nombre a esa acción.
+
+
+* El type es el identificador de la acción y este en la parte del reducer se va a utilizar para catalogar que se debe hacer ante una accion.
+Se genera una accion.
+La accion genera una modificacion
