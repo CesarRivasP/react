@@ -31,8 +31,19 @@ Con la definición de la arquitectura de Redux, tenemos transiciones de estado m
 * Una de las claves de como se manejan los estados dentro de Redux es que es un estado inmutable, y lo que se hacen son copias. Entonces, al no permitir mutaciones se hace una renderizacion mucho mas rápida porque las comparaciones que lleva a cabo react en los procesos de Reconciliation y otros, se establecen a nivel de objeto si hay modificación o no, y esto hace que sean mucho mas eficientes las renderizaciones.
 - Se utilizan librerías como inmutableJS (No se permiten mutaciones)
 
+* Reducer
+Es una función.
+
+* Dispatch
+Es un método que ayuda a disparar una acción.
 
 
-* Instalacion de Redux
+* Instalación de Redux
 - La libreria core de redux es independiente de React, ya que redux esta intencionadamente separado de React. Esta pensado para que pueda ser utilizado con Javascript plano, u otro framework visual como Angular, por decir alguno.
 - La libreria react-redux es la que realiza la vinculacion entre los dos frameworks.
+
+* Inicio
+- createStore va a generar el store, que es el lugar donde se va a poner todo el estado de la aplicación.
+-  La funcion createStore espera como parametro a un 'reducer'.
+
+- Una action es un objeto que viene identificado por un 'type'(nombre que identifica el tipo de acción), y se le pasa como valor el dato que se esta cambiando.
