@@ -47,3 +47,12 @@ Es un método que ayuda a disparar una acción.
 -  La funcion createStore espera como parametro a un 'reducer'.
 
 - Una action es un objeto que viene identificado por un 'type'(nombre que identifica el tipo de acción), y se le pasa como valor el dato que se esta cambiando.
+
+- Se debe abstraer lo maximo posible la logica del dispatch de las acciones, o la lógica de modificación del store.
+- Toda la manipulación del estado debe quedar por fuera del componente.
+- Se debe alejar el componente del manejo del estado (lo que esta en el store).
+
+- En vez de hacer un dispatch directo de la accion, se puede hacer un action creator.
+- El action creator es una funcion que se le pasa al dispatch para luego ser utilizada.
+Nota:
+En vez de hacer el dispatch de una acción directamente, se llama a un actionCreator. De esta manera estandarizamos la forma en que se llaman a la acciones y también se le proporciona un nombre a esa acción.
