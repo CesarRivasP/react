@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    "home": path.resolve(__dirname, 'src/entries/home.js'),
+    "platzi-video": path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -11,7 +11,6 @@ module.exports = {
   devServer: {
     port: 9000,
   },
-  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -22,7 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env','@babel/preset-react'],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           }
         },
       },
