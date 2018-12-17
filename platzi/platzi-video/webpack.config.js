@@ -29,9 +29,6 @@ const config = {
     publicPath: path.resolve(__dirname, 'dist') + "/",
     chunkFilename: 'js/[id].[chunkhash].js'
   },
-  devServer: {
-    port: 9000
-  },
   module: {
     rules: [
       {
@@ -40,10 +37,12 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env', '@babel/preset-react'
-            ],
-            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties', '@babel/plugin-proposal-object-rest-spread']
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              '@babel/plugin-transform-runtime',
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-object-rest-spread'
+            ]
           }
         }
       },
@@ -60,7 +59,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: [ MiniCssExtractPlugin.loader, "css-loader" ]
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
@@ -80,7 +79,7 @@ const config = {
 module.exports = (env, argv) => {
 	if (argv.mode === 'production') {
 		config.plugins.push(
-			new CleanWebpackPlugin(['dist'], {root:__dirname})
+			new CleanWebpackPlugin(['dist'], { root:__dirname })
 		)
 	}
 	return config
