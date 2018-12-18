@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:webpack": "webpack",
-    "build:dev": "webpack-dev-server --config ./webpack.dev.config.js",
+    "build:dev": "webpack-dev-server --config ./webpack.dev.config.js --mode development",
     "build:local": "webpack --env.NODE_ENV=local",
     "build:prod": "webpack --mode=production"
   },
