@@ -1,15 +1,18 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: {
     "platzi-video": path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js'
+    path: path.resolve(__dirname, 'dist/js'),
+    filename: '[name].js'
   },
   devServer: {
+    compress: true,
     port: 9000,
+    publicPath: '/js/'
   },
   module: {
     rules: [
